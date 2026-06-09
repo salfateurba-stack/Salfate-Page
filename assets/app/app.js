@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   EMPRESAS SALFATE SpA — main.js
+   EMPRESAS SALFATE SpA — app.js
    ═══════════════════════════════════════════════════ */
 
 /* ─── FLOTA TABS ─── */
@@ -15,6 +15,17 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: .1 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+/* ─── URL LIMPIA AL NAVEGAR ─── */
+const secciones = document.querySelectorAll('section[id]');
+const urlObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      history.replaceState(null, '', window.location.pathname);
+    }
+  });
+}, { threshold: 0.4 });
+secciones.forEach(s => urlObs.observe(s));
 
 /* ─── HAMBURGER MENU ─── */
 const hamburger = document.getElementById('navHamburger');
@@ -109,7 +120,7 @@ function resetForm() {
    ═══════════════════════════════════════════════════ */
 const galerias = {
 
-  /* ── OBRAS EJECUTADAS ── */
+  /* ── OBRAS EJECUTADAS (1 foto cada una — solo abre imagen) ── */
   canquen: [
     { src:'./assets/img/Obras ejecutadas/obra_craquen siena.webp', cap:'Urbanización Condominio Canquén' },
   ],
@@ -123,7 +134,7 @@ const galerias = {
     { src:'./assets/img/Obras ejecutadas/edificio balmaceda.jpg', cap:'Excavación Masiva – Edificio Balmaceda' },
   ],
 
-  /* ── OBRAS EN EJECUCIÓN ── */
+  /* ── OBRAS EN EJECUCIÓN (7 fotos con galería) ── */
   besalco: [
     { src:'./assets/img/obras en ejecucion/besalco.jpg',           cap:'Obras Ferroviarias Tramo 2 – Vista 1' },
     { src:'./assets/img/obras en ejecucion/besalco_2.jpg',         cap:'Obras Ferroviarias Tramo 2 – Vista 2' },
@@ -167,16 +178,16 @@ function abrirGaleria(obra, idx) {
 }
 
 function actualizarLightbox() {
-  document.getElementById('lb-img').src            = galeriaActual[lbIdx].src;
+  document.getElementById('lb-img').src             = galeriaActual[lbIdx].src;
   document.getElementById('lb-caption').textContent = galeriaActual[lbIdx].cap;
   const counter = document.getElementById('lb-counter');
-  const nav = document.querySelectorAll('.lb-prev, .lb-next');
+  const nav     = document.querySelectorAll('.lb-prev, .lb-next');
   if (galeriaActual.length > 1) {
-    counter.textContent = (lbIdx + 1) + ' / ' + galeriaActual.length;
+    counter.textContent   = (lbIdx + 1) + ' / ' + galeriaActual.length;
     counter.style.display = '';
     nav.forEach(b => b.style.display = '');
   } else {
-    counter.textContent = '';
+    counter.textContent   = '';
     counter.style.display = 'none';
     nav.forEach(b => b.style.display = 'none');
   }
