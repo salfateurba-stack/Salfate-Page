@@ -28,7 +28,7 @@
     "name": "Empresas Salfate SpA",
     "description": "Empresa de movimiento de tierras, urbanizaciones, demoliciones y arriendo de maquinaria pesada en Chile desde 2004.",
     "foundingDate": "2004",
-    "url": "https://www.empresassalfate.cl",
+    "url": "https://www.empresasalfate.cl",
     "telephone": "+56969797122",
     "email": "ts.salfate@gmail.com",
     "address": { "@type": "PostalAddress", "addressCountry": "CL" },
@@ -37,7 +37,14 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preconnect para Google Fonts (evita bloqueo de render) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"></noscript>
+
+  <!-- Preload imagen hero para mejorar LCP -->
+  <link rel="preload" as="image" href="./assets/img/hero_image.jpeg">
   <link rel="icon" href="assets/img/LOGOS/SALFATE_HNOS_LOGO.ico" type="image/x-icon">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>

@@ -135,7 +135,7 @@ h2 {
 }
 .hero-img {
   position:absolute; inset:0; z-index:0;
-  background:url('../img/hero_image.jpeg') center 60% / cover no-repeat;
+  background:url('../img/hero_image.webp') center 60% / cover no-repeat;
 }
 .hero-bg {
   position:absolute; inset:0; z-index:1;
