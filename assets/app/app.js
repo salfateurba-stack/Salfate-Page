@@ -17,6 +17,7 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
 /* ─── URL LIMPIA AL NAVEGAR ─── */
+// 1. Limpia el hash al hacer scroll entre secciones
 const secciones = document.querySelectorAll('section[id]');
 const urlObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -26,6 +27,18 @@ const urlObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.4 });
 secciones.forEach(s => urlObs.observe(s));
+
+// 2. Intercepta clics en links ancla para que nunca aparezca el hash
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      history.replaceState(null, '', window.location.pathname);
+    }
+  });
+});
 
 /* ─── HAMBURGER MENU ─── */
 const hamburger = document.getElementById('navHamburger');
@@ -113,14 +126,10 @@ function resetForm() {
 
 /* ═══════════════════════════════════════════════════
    GALERÍAS POR OBRA
-   ─────────────────────────────────────────────────
-   Para agregar o quitar fotos de una obra:
-   - Agrega/quita objetos { src, cap } en el array
-   - El badge "📷 X fotos" del HTML se actualiza solo
    ═══════════════════════════════════════════════════ */
 const galerias = {
 
-  /* ── OBRAS EJECUTADAS (1 foto cada una — solo abre imagen) ── */
+  /* ── OBRAS EJECUTADAS (1 foto — solo abre imagen) ── */
   canquen: [
     { src:'./assets/img/Obras ejecutadas/obra_craquen siena.webp', cap:'Urbanización Condominio Canquén' },
   ],
