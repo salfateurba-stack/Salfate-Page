@@ -18,7 +18,7 @@ jobs:
           username: deploy@empresasalfate.cl
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /public_html/
+          server-dir: /home/exhbjzic/public_html/
           exclude: |
             **/.git*
             **/.git*/**
