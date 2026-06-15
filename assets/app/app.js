@@ -171,6 +171,15 @@ const galerias = {
     { src:'./assets/img/obras en ejecucion/mariscal_6.webp',        cap:'Proyecto El Mariscal – Vista 6' },
     { src:'./assets/img/obras en ejecucion/mariscal_7.webp',        cap:'Proyecto El Mariscal – Vista 7' },
   ],
+  platinac: [
+    { src:'./assets/img/obras en ejecucion/platinac.webp',          cap:'Movimiento de Tierras – La Platina C – Vista 1' },
+    { src:'./assets/img/obras en ejecucion/platinac_2.webp',        cap:'Movimiento de Tierras – La Platina C – Vista 2' },
+    { src:'./assets/img/obras en ejecucion/platinac_3.webp',        cap:'Movimiento de Tierras – La Platina C – Vista 3' },
+    { src:'./assets/img/obras en ejecucion/platinac_4.webp',        cap:'Movimiento de Tierras – La Platina C – Vista 4' },
+    { src:'./assets/img/obras en ejecucion/platinac_5.webp',        cap:'Movimiento de Tierras – La Platina C – Vista 5' },
+    { src:'./assets/img/obras en ejecucion/platinac_6.webp',        cap:'Movimiento de Tierras – La Platina C – Vista 6' },
+    { src:'./assets/img/obras en ejecucion/platinac_7.webp',        cap:'Movimiento de Tierras – La Platina C – Vista 7' },
+  ],
 };
 
 /* ─── LIGHTBOX ENGINE ─── */
